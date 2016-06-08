@@ -8,62 +8,6 @@
 
 import Foundation
 
-struct Point{
-    var x: Double
-    var y: Double
-    var polarangle: Double?
-    var distance: Double?
-    
-    init(x: Double, y:Double){
-        self.x = x
-        self.y = y
-    }
-    
-    static func orderWithY(a: Point, b: Point)->Bool{
-        return a.y < b.y || (a.y == b.y && a.x < b.x)
-    }
-    
-    mutating func setPolar(lowest: Point)->Void{
-        let x = self.x - lowest.x
-        let y = self.y - lowest.y
-        
-        if(x == 0 && y == 0){
-            self.polarangle = 0
-        }
-        else if(x > 0){
-            self.polarangle = atan(y/x)*180/3.14
-        }
-        else if(x == 0){
-            self.polarangle = 90
-        }
-        else{
-            self.polarangle = 180 + atan(y/x)*180/3.14
-        }
-    }
-    
-    mutating func setDistance(lowest: Point){
-        self.distance = sqrt(pow(self.x - lowest.x, 2) + pow(self.y - lowest.y,2))
-    }
-    
-    static func orderWithPolar(a: Point, b: Point)->Bool{
-        return a.polarangle! < b.polarangle! || (a.polarangle! - b.polarangle! < 0.001 && a.distance! < b.distance!)
-    }
-}
-
-
-func counterClockWise(a: Point, b: Point, c: Point)->Int{
-    let area = 0.5*((b.x-a.x)*(c.y-a.y) - (b.y-a.y)*(c.x-a.x))
-    if (area < 0){
-        return 1 //clockwise
-    }
-    else if (area > 0){
-        return  -1 //counterclockwise
-    }
-    else{
-        return  0 // linear
-    }
-}
-
 var p = Point(x: 2.3,y: 2.3)
 var p2 = Point(x: 1, y: 1)
 var p3 = Point(x: 0, y: 0)
@@ -106,7 +50,7 @@ func GrahamScan(inout Points: [Point])->[Point]?{
     
     for var i in 3..<sortedPoints.count{
         var top = ConvexHull.removeLast()
-        while(counterClockWise(ConvexHull.last!, b: top, c: sortedPoints[i]) != -1){
+        while(Point.orientation(ConvexHull.last!, b: top, c: sortedPoints[i]) != -1){
             top = ConvexHull.removeLast()
         }
         ConvexHull.append(top)
