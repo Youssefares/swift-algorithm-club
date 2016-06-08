@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C054C4F41CEA83AC00267F49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054C4F31CEA83AC00267F49 /* main.swift */; };
+		C054C4F41CEA83AC00267F49 /* Graham Scan.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054C4F31CEA83AC00267F49 /* Graham Scan.swift */; };
 		C0F7D65F1D08709D0030FBBA /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D65E1D08709D0030FBBA /* Point.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		C054C4F01CEA83AB00267F49 /* Graham Scan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Graham Scan"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C054C4F31CEA83AC00267F49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		C054C4F31CEA83AC00267F49 /* Graham Scan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Graham Scan.swift"; sourceTree = "<group>"; };
 		C0F7D65E1D08709D0030FBBA /* Point.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,7 +59,7 @@
 		C054C4F21CEA83AB00267F49 /* Graham Scan */ = {
 			isa = PBXGroup;
 			children = (
-				C054C4F31CEA83AC00267F49 /* main.swift */,
+				C054C4F31CEA83AC00267F49 /* Graham Scan.swift */,
 				C0F7D65E1D08709D0030FBBA /* Point.swift */,
 			);
 			path = "Graham Scan";
@@ -123,7 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0F7D65F1D08709D0030FBBA /* Point.swift in Sources */,
-				C054C4F41CEA83AC00267F49 /* main.swift in Sources */,
+				C054C4F41CEA83AC00267F49 /* Graham Scan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

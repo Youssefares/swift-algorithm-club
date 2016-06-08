@@ -8,26 +8,26 @@
 
 import Foundation
 
-struct Point : CustomStringConvertible {
+public struct Point : CustomStringConvertible {
     var x: Double
     var y: Double
     var polarangle: Double?
     var distance: Double?
     
-    var description: String {
+    public var description: String {
         return "(\(x), \(y))"
     }
     
-    init(x: Double, y:Double){
+    public init(x: Double, y:Double){
         self.x = x
         self.y = y
     }
     
-    static func orderWithY(a: Point, b: Point)->Bool{
+    public static func orderWithY(a: Point, b: Point)->Bool{
         return a.y < b.y || (a.y == b.y && a.x < b.x)
     }
     
-    mutating func setPolar(lowest: Point)->Void{
+    public mutating func setPolar(lowest: Point)->Void{
         let x = self.x - lowest.x
         let y = self.y - lowest.y
         
@@ -45,15 +45,15 @@ struct Point : CustomStringConvertible {
         }
     }
     
-    mutating func setDistance(lowest: Point){
+    public mutating func setDistance(lowest: Point){
         self.distance = sqrt(pow(self.x - lowest.x, 2) + pow(self.y - lowest.y,2))
     }
     
-    static func orderWithPolar(a: Point, b: Point)->Bool{
+    public static func orderWithPolar(a: Point, b: Point)->Bool{
         return a.polarangle! < b.polarangle! || (a.polarangle! - b.polarangle! < 0.001 && a.distance! < b.distance!)
     }
     
-    static func orientation(a: Point, b: Point, c: Point)->Int{
+    public static func orientation(a: Point, b: Point, c: Point)->Int{
         let area = 0.5*((b.x-a.x)*(c.y-a.y) - (b.y-a.y)*(c.x-a.x))
         if (area < 0){
             return 1 //clockwise
